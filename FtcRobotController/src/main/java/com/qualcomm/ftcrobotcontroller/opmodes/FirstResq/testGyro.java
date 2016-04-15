@@ -1,8 +1,8 @@
-package com.qualcomm.ftcrobotcontroller.opmodes;
+package com.qualcomm.ftcrobotcontroller.opmodes.FirstResq;
 
-import com.qualcomm.hardware.ModernRoboticsI2cGyro;
+
+import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cGyro;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.GyroSensor;
 
 /**
  * Created by 7260 on 1/15/2016.

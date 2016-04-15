@@ -1,17 +1,17 @@
-package com.qualcomm.ftcrobotcontroller.opmodes;
+package com.qualcomm.ftcrobotcontroller.opmodes.FirstResq;
 
 
-import com.qualcomm.hardware.AdafruitI2cColorSensor;
+//import com.qualcomm.hardware.AdafruitI2cColorSensor;
+//import com.qualcomm.hardware.ModernRoboticsI2cGyro;
+
+import com.qualcomm.hardware.adafruit.AdafruitI2cColorSensor;
+import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cGyro;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.hardware.ModernRoboticsI2cGyro;
-import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DeviceInterfaceModule;
 import com.qualcomm.robotcore.hardware.DigitalChannelController;
 import com.qualcomm.robotcore.hardware.LegacyModule;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.UltrasonicSensor;
-
-import java.util.Date;
 
 /**
  * Created by 7260 on 11/20/2015.
