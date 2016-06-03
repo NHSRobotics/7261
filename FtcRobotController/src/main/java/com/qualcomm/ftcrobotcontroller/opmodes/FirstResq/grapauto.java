@@ -16,7 +16,7 @@ public class grapauto extends OpMode{
 
     @Override
     public void init() {
-        Chassis = new MovementAuto(hardwareMap.dcMotor.get("left"), hardwareMap.dcMotor.get("right"));
+        Chassis = new MovementAuto(hardwareMap.dcMotor.get("left"), hardwareMap.dcMotor.get("right"), 4, 1, 1120);
 
         Chassis.resetEncoders();
     }

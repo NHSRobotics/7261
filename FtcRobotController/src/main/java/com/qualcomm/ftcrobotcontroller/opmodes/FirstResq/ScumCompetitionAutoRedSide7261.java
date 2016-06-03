@@ -61,7 +61,7 @@ public class ScumCompetitionAutoRedSide7261 extends OpMode{
         //
         //Initializes and sets the hardware found through the config file
         //
-        Chassis = new MovementAuto(hardwareMap.dcMotor.get("left"), hardwareMap.dcMotor.get("right"));
+        Chassis = new MovementAuto(hardwareMap.dcMotor.get("left"), hardwareMap.dcMotor.get("right"),4,1,1120);
         climberArm = hardwareMap.servo.get("climber");
         leftsideArm = hardwareMap.servo.get("leftFlipper");
         rightsideArm = hardwareMap.servo.get("rightFlipper");

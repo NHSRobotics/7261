@@ -11,7 +11,7 @@ public class PracticeAuto extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
-        Chassis = new MovementAuto(hardwareMap.dcMotor.get("left"), hardwareMap.dcMotor.get("right"));
+        Chassis = new MovementAuto(hardwareMap.dcMotor.get("left"), hardwareMap.dcMotor.get("right"), 4, 1, 1120);
 
         Chassis.forwardDriveAuto(10.0);
 

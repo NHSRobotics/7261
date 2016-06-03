@@ -23,7 +23,7 @@ public class PracticeAuto2 extends OpMode{
 
     @Override
     public void init(){
-        Chassis = new MovementAuto(hardwareMap.dcMotor.get("left"), hardwareMap.dcMotor.get("right"));
+        Chassis = new MovementAuto(hardwareMap.dcMotor.get("left"), hardwareMap.dcMotor.get("right"), 4, 1, 1120);
         climberArm = new ServoMovementAuto(hardwareMap.servo.get("climberArm"));
         buttonArm = new ServoMovementAuto(hardwareMap.servo.get("buttonArm"));
         colorSensor = hardwareMap.colorSensor.get("color");

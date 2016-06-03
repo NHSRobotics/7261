@@ -28,7 +28,7 @@ public class PracticeAuto5 extends OpMode{
 
     @Override
     public void init(){
-        Chassis = new MovementAuto(hardwareMap.dcMotor.get("left"), hardwareMap.dcMotor.get("right"));
+        Chassis = new MovementAuto(hardwareMap.dcMotor.get("left"), hardwareMap.dcMotor.get("right"),4,1,1120);
         climberArm = hardwareMap.servo.get("climber");
 
         gyro = (ModernRoboticsI2cGyro)hardwareMap.gyroSensor.get("gyro");

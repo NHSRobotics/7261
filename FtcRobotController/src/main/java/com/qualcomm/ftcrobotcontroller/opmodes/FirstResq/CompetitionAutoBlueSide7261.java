@@ -10,8 +10,6 @@ import com.qualcomm.robotcore.hardware.LegacyModule;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.UltrasonicSensor;
 
-//import com.qualcomm.hardware.ModernRoboticsI2cGyro;
-
 /**
  * Created by 7260 on 11/20/2015.
  */
@@ -68,7 +66,7 @@ public class CompetitionAutoBlueSide7261 extends OpMode{
         //
         //Initializes and sets the hardware found through the config file
         //
-        Chassis = new MovementAuto(hardwareMap.dcMotor.get("left"), hardwareMap.dcMotor.get("right"));
+        Chassis = new MovementAuto(hardwareMap.dcMotor.get("left"), hardwareMap.dcMotor.get("right"), 4, 1, 1120);
         climberArm = hardwareMap.servo.get("climber");
         leftsideArm = hardwareMap.servo.get("leftFlipper");
         rightsideArm = hardwareMap.servo.get("rightFlipper");

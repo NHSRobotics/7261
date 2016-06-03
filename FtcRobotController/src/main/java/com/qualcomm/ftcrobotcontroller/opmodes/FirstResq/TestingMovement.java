@@ -11,21 +11,23 @@ public class TestingMovement extends OpMode {
 
     DcMotor RightDcMotor;
     DcMotor LeftDcMotor;
-    DcMotor UpperDcMotor;
-    DcMotor LowerDcMotor;
-    Servo MantisLeft;
-    Servo MantisRight;
+
+    DcMotor ArmMotor;
+
+    Servo ArmServo;
+
+    boolean ToggleServo = true;
+
+    long last = System.currentTimeMillis();
 
     public void init(){
         RightDcMotor = hardwareMap.dcMotor.get("RightMotor");
         LeftDcMotor = hardwareMap.dcMotor.get("LeftMotor");
-        UpperDcMotor = hardwareMap.dcMotor.get("UpperMotor");
-        LowerDcMotor = hardwareMap.dcMotor.get("LowerMotor");
-        MantisLeft = hardwareMap.servo.get("LeftMantisServo");
-        MantisRight = hardwareMap.servo.get("RightMantisServo");
+        ArmMotor = hardwareMap.dcMotor.get("ArmMotor");
 
-        MantisLeft.setPosition(1);
-        MantisRight.setPosition(0);
+        ArmServo = hardwareMap.servo.get("ArmServo");
+        ArmServo.setPosition(0);
+
     }
 
     public void loop(){
@@ -34,58 +36,61 @@ public class TestingMovement extends OpMode {
         //Tank Drive Section
         //
         if (gamepad1.left_stick_y>0){
+
             LeftDcMotor.setPower(0.5);
 
         }else if (gamepad1.left_stick_y<0){
+
             LeftDcMotor.setPower(-0.5);
 
         }else if (gamepad1.left_stick_y==0){
+
             LeftDcMotor.setPower(0.0);
         }
 
         if (gamepad1.right_stick_y>0){
+
             RightDcMotor.setPower(-0.5);
 
         }else if (gamepad1.right_stick_y<0){
+
             RightDcMotor.setPower(0.5);
 
         }else if (gamepad1.right_stick_y==0){
+
             RightDcMotor.setPower(0.0);
+
         }
 
-        //
-        //Grappling controls
-        //
-        if (gamepad2.right_stick_y>0){
-            UpperDcMotor.setPower(-0.5);
-        }else if (gamepad2.right_stick_y<0){
-            UpperDcMotor.setPower(0.5);
-        }else if(gamepad2.right_stick_y==0){
-            UpperDcMotor.setPower(0);
+        if (gamepad2.left_stick_y > 0){
+
+            ArmMotor.setPower(.3);
+
+        }else if (gamepad2.left_stick_y < 0){
+
+            ArmMotor.setPower(-.3);
+
+        }else {
+
+            ArmMotor.setPower(0);
+
         }
 
-        if (gamepad2.left_stick_y>0){
-            LowerDcMotor.setPower(0.2);
-        }else if (gamepad2.left_stick_y<0){
-            LowerDcMotor.setPower(-0.3);
-        }else if (gamepad2.left_stick_y==0){
-            LowerDcMotor.setPower(0);
+        if (gamepad2.right_stick_y > 0) {
+
+            ArmServo.setPosition(1.0);
+
+        }else if (gamepad2.right_stick_y < 0){
+
+            ArmServo.setPosition(0);
+
+        }else {
+
+            ArmServo.setPosition(0.5);
+
         }
 
-        if (gamepad2.left_bumper == true){
-            MantisLeft.setPosition(0);
-        }else if (gamepad2.right_bumper == true) {
-            MantisRight.setPosition(1);
-        }
-
-        if (gamepad2.left_trigger == 1.0){
-            MantisLeft.setPosition(1);
-        }else if (gamepad2.right_trigger == 1.0){
-            MantisRight.setPosition(0);
-        }
-
-
-
+        telemetry.addData("ToggleServo: ", ToggleServo);
     }
 
 }

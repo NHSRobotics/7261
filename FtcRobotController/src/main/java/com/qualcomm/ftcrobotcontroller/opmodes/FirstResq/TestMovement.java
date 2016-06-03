@@ -2,6 +2,7 @@ package com.qualcomm.ftcrobotcontroller.opmodes.FirstResq;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 
 /**
  * Created by Robotics on 4/13/2016.
@@ -12,6 +13,10 @@ public class TestMovement extends OpMode {
     DcMotor RightMotorTwo;
     DcMotor LeftMotorOne;
     DcMotor LeftMotorTwo;
+    boolean ToggleServo = false;
+    Servo ServoArm;
+
+    long last = System.currentTimeMillis();
 
     public void init (){
 
@@ -19,7 +24,9 @@ public class TestMovement extends OpMode {
         RightMotorTwo = hardwareMap.dcMotor.get("RightMotorTwo");
         LeftMotorOne = hardwareMap.dcMotor.get("LeftMotorOne");
         LeftMotorTwo = hardwareMap.dcMotor.get("LeftMotorTwo");
+        ServoArm = hardwareMap.servo.get("ServoArm");
 
+        ServoArm.setPosition(.1);
     }
 
     @Override
@@ -57,6 +64,17 @@ public class TestMovement extends OpMode {
             RightMotorOne.setPower(0);
             RightMotorTwo.setPower(0);
 
+        }
+
+        if(gamepad1.a && (System.currentTimeMillis() - last ) >= 1000) {
+            if (ToggleServo == false) {
+                ServoArm.setPosition(.9);
+                ToggleServo = true;
+            } else if (ToggleServo == true) {
+                ServoArm.setPosition(.1);
+                ToggleServo = false;
+            }
+            last = System.currentTimeMillis();
         }
 
     }
