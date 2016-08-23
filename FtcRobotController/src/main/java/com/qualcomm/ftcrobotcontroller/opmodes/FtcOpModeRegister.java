@@ -31,7 +31,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
+import com.qualcomm.ftcrobotcontroller.opmodes.FirstResq.CompetitionTeleOp7261;
 import com.qualcomm.ftcrobotcontroller.opmodes.FirstResq.TestingMovement;
+import com.qualcomm.ftcrobotcontroller.opmodes.OffSeason.DemoBot;
 import com.qualcomm.ftcrobotcontroller.opmodes.OffSeason.FreshmenBot1;
 import com.qualcomm.robotcore.eventloop.opmode.OpModeManager;
 import com.qualcomm.robotcore.eventloop.opmode.OpModeRegister;
@@ -60,6 +62,8 @@ public class FtcOpModeRegister implements OpModeRegister {
     manager.register("NullOp", com.qualcomm.ftcrobotcontroller.opmodes.NullOp.class);
 
     //manager.register("Simple Movement", SimpleMovement.class);
+    manager.register("Competition TeleOp", CompetitionTeleOp7261.class);
+    manager.register("Demo Bot", DemoBot.class);
     manager.register("Freshmen Bot", FreshmenBot1.class);
     manager.register("Jamez Group Bot", TestingMovement.class);
   }
